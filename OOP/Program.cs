@@ -6,7 +6,13 @@ namespace OOP
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello Worl!");
+			Bank bank = new Bank(2);
+			
+			
+			
+
+			Console.WriteLine(bank.ToString());
+;
 		}
 	}
 }
