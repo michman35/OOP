@@ -18,27 +18,8 @@ namespace OOP
 		private decimal Balans;
 		private CountingType Type;
 
-		public Bank(decimal balans)
-		{
-			Balans = balans;
-			IncreeseId();
-			NumberCounting = id;
-		}
-		public Bank(CountingType type)
-		{
-			Type = type;
-			IncreeseId();
-			NumberCounting = id;
-
-		}
-		public Bank(decimal balans, CountingType type)
-		{
-			Balans = balans;
-			Type = type;
-			IncreeseId();
-			NumberCounting = id;
-		}
-
+		
+		
 		private static void IncreeseId()
 		{
 			id++;
@@ -48,9 +29,17 @@ namespace OOP
 		{
 			return Balans;
 		}
+		public void SetBalans(decimal balans)
+		{
+			Balans = balans;
+		}
 		public CountingType GetType()
 		{
 			return Type;
+		}
+		public void SetType(CountingType type)
+		{
+			Type = type;
 		}
 		public int GetNumberCounting()
 		{
@@ -64,7 +53,7 @@ namespace OOP
 		public override string ToString()
 		{
 			var enter = Environment.NewLine;
-			return $"номер счета  {NumberCounting}{enter}баланс {Balans}{enter}тип {Type}";
+			return $"номер счета  {GetNumberCounting()}{enter}баланс {Balans}{enter}тип {Type}";
 		}
 
 	}

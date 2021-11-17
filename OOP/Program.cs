@@ -6,8 +6,9 @@ namespace OOP
 	{
 		static void Main(string[] args)
 		{
-			Bank bank = new Bank(2);
-			
+			Bank bank = new Bank();
+			bank.SetBalans(1);
+			bank.SetType(CountingType.fiz);
 			Console.WriteLine(bank.ToString());
 ;
 		}
