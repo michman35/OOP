@@ -8,9 +8,6 @@ namespace OOP
 		{
 			Bank bank = new Bank(2);
 			
-			
-			
-
 			Console.WriteLine(bank.ToString());
 ;
 		}
