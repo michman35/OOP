@@ -13,17 +13,14 @@ namespace OOP
 	}
 	class Bank
 	{
-		private static int id;
+		
 		private int NumberCounting;
 		private decimal Balans;
 		private CountingType Type;
 
 		
 		
-		private static void IncreeseId()
-		{
-			id++;
-		}
+		
 	
 		public decimal GetBalans()
 		{
@@ -43,12 +40,12 @@ namespace OOP
 		}
 		public int GetNumberCounting()
 		{
-			if (NumberCounting==default)
-			{
-				IncreeseId();
-				NumberCounting = id;
-			}
+			
 			return NumberCounting;
+		}
+		public void SetNumberCounting(int numberCounting)
+		{
+			NumberCounting = numberCounting;
 		}
 		public override string ToString()
 		{
