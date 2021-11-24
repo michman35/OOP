@@ -18,9 +18,6 @@ namespace OOP
 		private decimal Balans;
 		private CountingType Type;
 
-		
-		
-		
 	
 		public decimal GetBalans()
 		{
@@ -50,7 +47,13 @@ namespace OOP
 		public override string ToString()
 		{
 			var enter = Environment.NewLine;
-			return $"номер счета  {GetNumberCounting()}{enter}баланс {Balans}{enter}тип {Type}";
+			return $"номер счета  {GetNumberCounting()}{enter}баланс {Balans}";
+		}
+
+		public void Transfer(Bank bank, int summ)
+		{
+			Console.WriteLine($"На счете 868979 осталось: { this.Balans -= summ}$");
+			Console.WriteLine($"Стало на счете 34355  : { bank.Balans += summ}$");
 		}
 
 	}
