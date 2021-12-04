@@ -5,25 +5,16 @@ namespace OOP
 	class Program
 	{
 		static void Main(string[] args)
-		{ //1 задание
-			Bank bank = new Bank();
-			bank.SetBalans(200);
-			bank.SetNumberCounting(868979);
+		{
+			Building building = new Building();
+			building.SetHeight(1000);
+			building.SetNumberFloors(5);
+			building.SetNumberApartments(100);
+			building.SetNumberEntrances(4);
 
-			Bank bank1 = new Bank();
-			bank1.SetBalans(350);
-			bank1.SetNumberCounting(34355);
-
-			bank.Transfer(bank1, 50);// снятие со счета 
-
-			// 2 здание 
-			Console.WriteLine("partizan");
-			string name = "partizan";
-
-			for(int i = name.Length - 1; i >= 0; i--)
-			{
-				Console.Write(name[i]);
-			}
+			Console.WriteLine($@"высота этажа {building.GetApartmentHeight()}");
+			Console.WriteLine($@"кол-во квартир в подьезде {building.GetApartmentsInEntrances()}");
+			Console.WriteLine($@"кол-во квартир на этаже {building.GetApartmentsInFloor()}");
 		}
 	}
 }
