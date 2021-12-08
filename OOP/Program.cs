@@ -2,19 +2,23 @@
 
 namespace OOP
 {
+	
+
+	
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			Building building = new Building();
-			building.SetHeight(1000);
-			building.SetNumberFloors(5);
-			building.SetNumberApartments(100);
-			building.SetNumberEntrances(4);
+			var s1 = new Number(1, 2);
+			var s2 = new Number(2, 1);
 
-			Console.WriteLine($@"высота этажа {building.GetApartmentHeight()}");
-			Console.WriteLine($@"кол-во квартир в подьезде {building.GetApartmentsInEntrances()}");
-			Console.WriteLine($@"кол-во квартир на этаже {building.GetApartmentsInFloor()}");
+		
+			int q = (int)s1;
+			float qq = (float)s2;
+
+			Console.WriteLine(s1 == s2);
 		}
+
+		
 	}
 }
