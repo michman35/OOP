@@ -1,24 +1,36 @@
 ﻿using System;
+using static OOP.Bank;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OOP;
+
 
 namespace OOP
-{
-	
-
-	
+{		
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var s1 = new Number(1, 2);
-			var s2 = new Number(2, 1);
+			ConsoleMessage message = new ConsoleMessage();
+			
+			Bank bank = new Bank();
+			bank.AccountNumber = 132123;
+			bank.Account = 43424;
 
-		
-			int q = (int)s1;
-			float qq = (float)s2;
+			Bank bank2 = new Bank();			
+			bank2.AccountNumber = 654611;			
+			bank2.Account = 4342;
 
-			Console.WriteLine(s1 == s2);
+			bank.Messages();
+			bool result = bank.AccountNumber != bank2.AccountNumber;
+			bool result2 = bank.Account == bank2.Account;
+			message.Info($" номера счетов: {result}, Сравн количества денег на счете: {result2}");
+
 		}
 
-		
+	
 	}
 }
+

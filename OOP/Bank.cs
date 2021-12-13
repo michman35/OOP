@@ -3,59 +3,93 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOP;
+using static System.Formats.Asn1.AsnWriter;
+using static OOP.Bank;
 
 namespace OOP
 {
-	public enum CountingType
-	{
-		fiz,
-		ur,
-	}
-	class Bank
-	{
-		
-		private int NumberCounting;
-		private decimal Balans;
-		private CountingType Type;
 
-	
-		public decimal GetBalans()
+    class Bank
+    {
+		internal int AccountNumber;
+		internal int Account;
+
+		public class BankAccount
+        {
+            private int _accountNumber;
+            private int _account;
+            public int AccountNumber
+            {
+                get { return _accountNumber; }
+                set
+                {
+                    if(value < 0)
+                        throw new Exception("не существует");
+                    else
+                        _accountNumber = value;
+                }
+            }
+            public int Account
+            {
+                get { return _account; }
+                set
+                {
+                    if(value < 0)
+                        throw new Exception("в банке ");
+                    else
+                        _account = value;
+                }
+            }
+            //переопределение операторов 
+            public static bool operator ==(BankAccount s1, BankAccount s2)
+            {
+                return s1.AccountNumber == s2.AccountNumber && s1.Account == s2.Account;
+            }
+            public static bool operator !=(BankAccount s1, BankAccount s2)
+            {
+                return s1.AccountNumber != s2.AccountNumber && s1.Account != s2.Account;
+            }
+            public override bool Equals(object? obj)
+            {
+                return base.Equals(obj);
+            }
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
+            }
+            public override string ToString()
+            {
+                return $"Сравниваем счета ";
+            }
+            public void Messages()
+            {
+                ConsoleMessage message = new ConsoleMessage();
+                message.Info(ToString());
+            }
+        }
+
+		internal void Messages()
 		{
-			return Balans;
-		}
-		public void SetBalans(decimal balans)
-		{
-			Balans = balans;
-		}
-		public CountingType GetType()
-		{
-			return Type;
-		}
-		public void SetType(CountingType type)
-		{
-			Type = type;
-		}
-		public int GetNumberCounting()
-		{
-			
-			return NumberCounting;
-		}
-		public void SetNumberCounting(int numberCounting)
-		{
-			NumberCounting = numberCounting;
-		}
-		public override string ToString()
-		{
-			var enter = Environment.NewLine;
-			return $"номер счета  {GetNumberCounting()}{enter}баланс {Balans}";
+			throw new NotImplementedException();
 		}
 
-		public void Transfer(Bank bank, int summ)
-		{
-			Console.WriteLine($"На счете 868979 осталось: { this.Balans -= summ}$");
-			Console.WriteLine($"Стало на счете 34355  : { bank.Balans += summ}$");
-		}
+		public abstract class Message
+        {
+            public abstract void Info(string message);
+        }
+        public sealed class ConsoleMessage : Message
+        {
+            public override void Info(string message)
+            {
+                Console.WriteLine(message);
+            }
+        }
+    }
 
-	}
+
 
 }
+    
+
+
